@@ -1,11 +1,11 @@
 use std::cmp::Ordering;
+use std::io;
 
 fn main() {
 
 
     let num = rand::random::<u8>();
     let modded_num = num % 101;
-
 
     let output = format!("number is {modded_num}");
 
@@ -21,9 +21,20 @@ fn main() {
             .read_line(&mut guess)
             .expect("Reading line failed.");
 
-        match guess.cmp(&modded_num) {
-            
+        match guess.trim().parse::<u8>() {
+            Ok(val) => {
+                match val.cmp(&modded_num) {
+                    Ordering::Less => println!("Too low!!!"),
+                    Ordering::Equal => {
+                        println!("Correct! Exiting...");
+                        return
+                    },
+                    Ordering::Greater => println!("Too high!!!"),
+                }
+            },
+            Err(_val) => {
+                println!("Invalid Value. Try Again");
+            },
         }
-    
     }
 }
