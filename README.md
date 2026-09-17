@@ -16,6 +16,9 @@ This repo will be an every growing list of things I will do to learn about the l
 Have the computer choose a random number from 1–100 and repeatedly ask the user to guess.
 
 
+# Project 2 - CLI Unit Converter
 
+* Simple converter from farenheit to celsius and vice versa. Also for miles and kilometers
+* Reason to do this is to get a basic grasp of state modeling and exhaustive match handling
 
 
